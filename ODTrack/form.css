@@ -1,0 +1,277 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #f2f2f2);
+    background-image: url('form bg img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    /* Reduced padding-bottom to accommodate shorter footer */
+    padding-bottom: 130px; /* Adjusted from 180px */
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Add a semi-transparent overlay to dim the background image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    width: 100%;
+    background-color: #831238;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Logo or image inside the navbar */
+.navbar img.logo {
+    height: 50px;
+    display: block;
+}
+
+/* Logout button Styling */
+.logout-button {
+    background-color: #c3bea9ae;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Form Container */
+form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    margin: 50px auto 100px auto; /* Adjust bottom margin if needed */
+    display: flex;
+    flex-direction: column;
+    border-color: #800000;
+    border-style: thin;
+    box-sizing: border-box;
+}
+
+
+/* Label Styling */
+label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 750;
+    color: #555;
+    font-size: 14px;
+    color: black;
+    box-sizing: border-box;
+}
+
+/* Input and Select Styling */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #800000;
+    box-shadow: 0px 0px 5px rgba(128, 0, 0, 0.5);
+}
+
+/* File Input Styling */
+input[type="file"] {
+    padding: 5px;
+    background: #f9f9f9;
+    border: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+button[type="submit"]:hover {
+    background-color: #a00000;
+}
+
+
+/* --- Footer Styling --- */
+footer {
+    background: #831238; /* Color unchanged */
+    color: white;
+    text-align: left;
+    /* Reduced padding */
+    padding: 10px 0 5px 0; /* Adjusted top/bottom padding */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+/* Footer container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    /* Reduced padding */
+    padding: 5px 20px; /* Adjusted top/bottom padding */
+    box-sizing: border-box;
+}
+
+/* Footer text */
+.footer-content h2 {
+    /* Reduced font size */
+    font-size: 16px; /* Adjusted from 20px */
+    margin-bottom: 3px; /* Reduced margin */
+    margin-top: 0;
+}
+
+.footer-content p {
+    /* Reduced font size */
+    font-size: 12px; /* Adjusted from 14px */
+    text-align: left;
+    margin: 0;
+}
+
+/* Social Media Icons */
+.footer-social {
+    display: flex;
+    /* Reduced gap */
+    gap: 10px; /* Adjusted from 15px */
+}
+
+.footer-icon {
+    /* Reduced size */
+    width: 35px; /* Adjusted from 50px */
+    height: 35px; /* Adjusted from 50px */
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    /* Adjusted margin */
+    margin-top: 8px; /* Adjusted from 10px */
+    font-size: 11px; /* Adjusted from 12px */
+    opacity: 0.8;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Styles for screens 768px wide or smaller (Tablets) */
+@media screen and (max-width: 768px) {
+    body {
+       /* Adjusted padding-bottom for stacked, shorter footer */
+       padding-bottom: 170px; /* Adjusted from 220px */
+    }
+
+    .navbar { padding: 10px 20px; }
+    .navbar img.logo { height: 45px; }
+    .logout-button { font-size: 14px; padding: 8px 12px; }
+    form { padding: 20px; margin-top: 30px; margin-bottom: 80px; }
+    label { font-size: 13px; }
+    input, select { font-size: 13px; padding: 9px; }
+    button[type="submit"] { font-size: 15px; padding: 11px; }
+
+    /* Adjust footer for smaller screens (stacked) */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 8px 15px; /* Adjust padding */
+    }
+    .footer-content { margin-bottom: 10px; /* Reduce space */ }
+    .footer-content h2 { font-size: 15px; } /* Adjust font */
+    .footer-content p { font-size: 11px; text-align: center; } /* Adjust font */
+    .footer-social { margin-top: 8px; justify-content: center; gap: 12px; } /* Adjust spacing/gap */
+    .footer-icon { width: 30px; height: 30px; } /* Smaller icons */
+    .footer-bottom { margin-top: 12px; font-size: 10px; } /* Adjust spacing/font */
+}
+
+/* Styles for screens 480px wide or smaller (Mobile phones) */
+@media screen and (max-width: 480px) {
+     body{
+        /* Adjusted padding-bottom further */
+        padding-bottom: 180px; /* Adjusted from 240px */
+        background-image: none;
+        background-color: #f2f2f2;
+     }
+     body::before { display: none; }
+     .navbar { padding: 8px 15px; }
+     .navbar img.logo { height: 40px; }
+     .logout-button { font-size: 12px; padding: 6px 10px; }
+     form { padding: 15px; margin-top: 20px; margin-bottom: 60px; width: 95%; }
+     label { font-size: 12px; }
+     input, select { font-size: 12px; padding: 8px; }
+     button[type="submit"] { font-size: 14px; padding: 10px; }
+
+     /* Further adjustments for footer on small mobiles */
+     .footer-container { padding: 6px 10px; }
+     .footer-content { margin-bottom: 8px; }
+     .footer-content h2 { font-size: 14px; }
+     .footer-content p { font-size: 10px; }
+     .footer-social { margin-top: 6px; gap: 10px; }
+     .footer-icon { width: 28px; height: 28px; }
+     .footer-bottom { margin-top: 10px; font-size: 9px; }
+}

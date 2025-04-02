@@ -1,0 +1,124 @@
+body {
+    background: url('Login background.jpg') no-repeat center center fixed; /* Corrected path quoting if needed */
+    /* background: url('Login\ background.jpg') no-repeat center center fixed; */ /* Original - backslash might cause issues */
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    display: flex; /* Use flex to help center */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure body takes full height */
+    margin: 0; /* Remove default body margin */
+}
+
+.login-container {
+    /* width: 300px; */ /* Replaced with flexible width */
+    width: 90%; /* Use percentage */
+    max-width: 350px; /* Slightly larger max-width */
+    padding: 30px; /* Increased padding */
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Enhanced shadow */
+    text-align: center;
+    /* margin: auto; */ /* Replaced by flex centering on body */
+    /* opacity: 90%; */ /* Opacity is handled by background-color alpha */
+    /* margin-top: 100px; */ /* Replaced by flex centering */
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 100%;
+    max-width: 180px; /* Keep max-width */
+    margin-bottom: 15px; /* Add some space below logo */
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #333; /* Darker text color */
+}
+
+.user-type, .register-number, .password {
+    width: 100%; /* Ensure inputs take full width of container */
+    padding: 12px; /* Increased padding */
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding in width */
+    font-size: 14px; /* Standardize font size */
+}
+
+.user-type:focus, .register-number:focus, .password:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add focus glow */
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 16px; /* Explicit font size */
+    margin-top: 15px; /* Add margin above button */
+    box-sizing: border-box;
+}
+
+.login-button:hover {
+    background-color: #e64a19;
+    transform: scale(1.02); /* Slightly less intense hover scale */
+}
+
+.forgot-password {
+    margin-top: 15px; /* Increased margin */
+    font-size: 13px; /* Slightly smaller font */
+}
+
+.forgot-password a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        padding: 25px;
+        max-width: 320px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        width: 95%; /* Wider on very small screens */
+        padding: 20px;
+        max-width: none; /* Allow it to fill width */
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+
+    .user-type, .register-number, .password {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .login-button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .forgot-password {
+        font-size: 12px;
+    }
+}
