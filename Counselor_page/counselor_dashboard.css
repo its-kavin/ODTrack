@@ -1,0 +1,182 @@
+/* Inherits base styles, navbar, footer from form.css */
+
+/* Adjust body padding if necessary based on footer height */
+body {
+    padding-bottom: 180px; /* Adjust as needed */
+}
+
+/* Main container for the counselor dashboard */
+.dashboard-container {
+   width: 95%;
+   max-width: 1000px; /* Wider container for tables/lists */
+   margin: 30px auto; /* Center container */
+   padding: 20px 25px;
+   background: white;
+   border-radius: 8px;
+   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-container h1 {
+   text-align: center;
+   color: #333;
+   margin-bottom: 10px;
+   font-size: 1.6em;
+}
+
+.dashboard-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+/* Styling for filter/search section */
+.filter-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    display: flex;
+    gap: 15px;
+}
+
+.filter-section input[type="text"] {
+    padding: 8px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    flex-grow: 1; /* Take available space */
+}
+
+/* Styling for each OD Request Card/Row */
+.od-card {
+   display: flex;
+   flex-wrap: wrap; /* Allow wrapping on smaller screens */
+   background: #fff;
+   border: 1px solid #e0e0e0;
+   border-radius: 6px;
+   padding: 15px;
+   margin-bottom: 15px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+   transition: box-shadow 0.3s ease;
+   gap: 15px; /* Space between flex items */
+}
+
+.od-card:hover {
+   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.od-info {
+    flex: 3; /* Takes more space */
+    min-width: 250px; /* Minimum width before wrapping */
+}
+
+.od-info h3 {
+   margin: 0 0 10px 0;
+   font-size: 1.1em;
+   color: #444;
+}
+
+.od-info p {
+   margin: 4px 0;
+   font-size: 0.9em;
+   color: #555;
+   text-align: left; /* Override centered p */
+}
+.od-info strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+.od-proof {
+    flex: 1; /* Takes less space */
+    min-width: 150px;
+    text-align: center;
+}
+
+.od-proof img, .od-proof a {
+    max-width: 100px; /* Limit proof preview size */
+    height: auto;
+    display: block;
+    margin: 5px auto;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.od-proof a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 0.85em;
+    border: none;
+}
+.od-proof a:hover {
+    text-decoration: underline;
+}
+.od-proof span { /* Message if no proof */
+    font-size: 0.85em;
+    color: #777;
+    font-style: italic;
+}
+
+
+.od-actions {
+    flex: 1; /* Takes less space */
+    min-width: 180px; /* Ensure buttons fit */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
+}
+
+.od-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.approve-button {
+    background-color: #28a745; /* Green */
+    color: white;
+}
+.approve-button:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+.reject-button {
+    background-color: #dc3545; /* Red */
+    color: white;
+}
+.reject-button:hover {
+    background-color: #c82333;
+    transform: scale(1.03);
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 768px) {
+    body { padding-bottom: 200px; } /* Match form.css */
+    .dashboard-container { width: 95%; padding: 15px; }
+    .dashboard-container h1 { font-size: 1.4em; }
+    .od-card { flex-direction: column; align-items: stretch; } /* Stack sections vertically */
+    .od-info, .od-proof, .od-actions { min-width: 100%; flex-basis: auto; } /* Full width sections */
+    .od-actions { flex-direction: row; justify-content: space-around; margin-top: 10px;} /* Buttons side-by-side */
+    .od-actions button { width: 45%; } /* Adjust button width */
+    .od-proof img, .od-proof a { margin: 5px auto; } /* Center proof */
+}
+
+@media screen and (max-width: 480px) {
+    body { padding-bottom: 220px; } /* Match form.css */
+    .dashboard-container { width: 100%; border-radius: 0; box-shadow: none; margin: 15px 0;}
+    .dashboard-container h1 { font-size: 1.3em; }
+    .filter-section { flex-direction: column; }
+    .od-info h3 { font-size: 1.05em; }
+    .od-info p { font-size: 0.85em; }
+    .od-actions { gap: 8px; }
+    .od-actions button { font-size: 0.8em; padding: 7px 10px; width: 48%; }
+}

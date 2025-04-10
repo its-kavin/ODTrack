@@ -1,0 +1,95 @@
+/* ODTrack/geotag_upload.css */
+
+/* Inherit body padding from form.css if needed, or define here */
+/* body { padding-bottom: 180px; } */
+
+.upload-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+ }
+ .upload-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+ }
+  .od-details-display {
+     background-color: #f8f9fa;
+     padding: 15px;
+     border-radius: 5px;
+     margin-bottom: 20px;
+     border: 1px solid #eee;
+     font-size: 0.9em;
+     color: #555;
+     min-height: 50px; /* Ensure space while loading */
+     line-height: 1.6;
+  }
+   .od-details-display p {
+     margin: 5px 0;
+   }
+    .od-details-display strong {
+       color: #333;
+    }
+ 
+  #upload-form label {
+     display: block;
+     margin: 15px 0 5px 0;
+     font-weight: 600;
+     color: #444;
+  }
+  #upload-form input[type="file"] {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     margin-bottom: 20px;
+     background-color: #f9f9f9;
+     cursor: pointer;
+  }
+   #upload-form input[type="file"]:focus {
+     border-color: #800000;
+     outline: none;
+     box-shadow: 0px 0px 5px rgba(128, 0, 0, 0.3);
+   }
+ 
+  #upload-form button {
+     display: block;
+     width: 100%;
+     padding: 12px;
+     background-color: #28a745; /* Green */
+     color: white;
+     border: none;
+     border-radius: 5px;
+     font-size: 1em;
+     font-weight: bold;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+   #upload-form button:hover {
+     background-color: #218838;
+     transform: scale(1.01);
+  }
+  .back-link {
+     display: block;
+     text-align: center;
+     margin-top: 20px;
+     color: #007bff;
+     text-decoration: none;
+     font-size: 0.9em;
+  }
+  .back-link:hover {
+     text-decoration: underline;
+  }
+ 
+  /* Media Queries for responsiveness if needed */
+  @media screen and (max-width: 480px) {
+     .upload-container {
+         width: 95%;
+         padding: 15px;
+         margin-top: 20px;
+     }
+  }

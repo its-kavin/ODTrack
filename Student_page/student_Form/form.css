@@ -1,0 +1,435 @@
+/* Apply box-sizing globally */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Consider loading this font or using alternatives */
+    background-color: #f0f2f5; /* Lighter default background */
+    /* Ensure image path is correct */
+    background-image: url('form bg img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    position: relative; /* Needed for absolute positioned footer */
+    /* Adjust padding-bottom to prevent content overlap with footer */
+    /* This value should be >= footer height */
+    padding-bottom: 150px; /* Default - adjust in media queries */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    box-sizing: border-box;
+}
+
+
+/* Semi-transparent overlay for background image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.35); /* Slightly darker overlay */
+    pointer-events: none; /* Allow clicks through */
+    z-index: -1; /* Place behind content */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space out logo, links, button */
+    align-items: center;
+    padding: 10px 25px;
+    width: 100%;
+    background-color: #831238; /* Sathyabama maroon */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Keep navbar at the top */
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar img.logo {
+    height: 45px;
+    display: block;
+}
+
+/* Navigation Links in Navbar */
+.nav-links {
+    display: flex;
+    gap: 20px; /* Space between links */
+}
+
+.nav-links a.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-links a.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Logout button Styling */
+.logout-button {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+    border-color: white;
+}
+
+/* Main container for form page content */
+.form-container-main {
+    background: rgba(255, 255, 255, 0.97); /* Almost opaque */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 550px; /* Slightly wider form */
+    margin: 40px auto 60px auto; /* Center form vertically and horizontally */
+    border: 1px solid #ddd;
+}
+
+.form-container-main h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.5em;
+}
+
+/* Form specific styles */
+#od-request-form label {
+    display: block; /* Labels on their own line */
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: 600;
+    color: #444;
+    font-size: 0.9em;
+}
+
+#od-request-form input[type="text"],
+#od-request-form input[type="tel"],
+#od-request-form input[type="date"],
+#od-request-form input[type="file"],
+#od-request-form select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 0; /* Remove default margin */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 0.95em;
+    background-color: #fff;
+}
+
+#od-request-form input:focus,
+#od-request-form select:focus {
+    border-color: #800000; /* Highlight border on focus */
+    box-shadow: 0px 0px 5px rgba(128, 0, 0, 0.3);
+}
+
+#od-request-form input[type="file"] {
+    padding: 8px 10px;
+    background: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Submit Button */
+#od-request-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #800000; /* Sathyabama maroon */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#od-request-form button[type="submit"]:hover {
+    background-color: #a00000; /* Darker maroon on hover */
+    transform: scale(1.01); /* Subtle grow effect */
+}
+
+/* Link style (used on dashboard below form) */
+.view-status-link-inline {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #800000;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.view-status-link-inline:hover {
+    text-decoration: underline;
+}
+
+/* --- Footer Styling --- */
+footer {
+    background: #831238; /* Match Navbar */
+    color: white;
+    padding: 15px 0 10px 0;
+    width: 100%;
+    position: absolute; /* Stick to the bottom */
+    bottom: 0;
+    left: 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Space out content and social icons */
+    align-items: center;
+    max-width: 1200px; /* Limit footer width */
+    margin: 0 auto; /* Center footer content */
+    padding: 0 25px;
+}
+
+.footer-content h2 {
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+}
+
+.footer-content p {
+    font-size: 0.85em;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px; /* Space between icons */
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.footer-icon:hover {
+    transform: scale(1.15); /* Enlarge icon on hover */
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8em;
+    opacity: 0.8;
+    padding: 0 20px; /* Add padding for small screens */
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablets and smaller devices */
+@media screen and (max-width: 768px) {
+    body {
+       /* Footer will likely stack, increase bottom padding */
+       padding-bottom: 200px; /* Adjust as needed */
+    }
+    .navbar {
+        padding: 8px 20px;
+        flex-wrap: wrap; /* Allow items to wrap if needed */
+        justify-content: center; /* Center items when wrapped */
+        gap: 10px;
+     }
+    .navbar img.logo { height: 40px; }
+    .nav-links { order: 3; width: 100%; justify-content: center; } /* Move links below logo/button */
+    .logout-button { font-size: 0.85em; padding: 7px 12px; order: 2;} /* Place button after logo */
+
+
+    .form-container-main {
+        width: 95%;
+        padding: 20px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    .form-container-main h1 { font-size: 1.3em; }
+    #od-request-form label { font-size: 0.85em; }
+    #od-request-form input, #od-request-form select { font-size: 0.9em; padding: 9px 10px; }
+    #od-request-form button[type="submit"] { font-size: 0.95em; padding: 11px; }
+
+    /* Stack footer content */
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 20px;
+    }
+    .footer-content { margin-bottom: 15px; }
+    .footer-content h2 { font-size: 1em; }
+    .footer-content p { font-size: 0.8em; }
+    .footer-social { justify-content: center; gap: 15px; } /* Center icons */
+    .footer-icon { width: 28px; height: 28px; }
+    .footer-bottom { margin-top: 10px; font-size: 0.75em; }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+     body {
+        padding-bottom: 220px; /* Further increase padding */
+        /* Optional: simpler background on small screens */
+        /* background-image: none; */
+        /* background-color: #f0f2f5; */
+     }
+     /* body::before { display: none; } */ /* Hide overlay if background image is removed */
+
+     .navbar { padding: 6px 15px; gap: 8px;}
+     .navbar img.logo { height: 35px; }
+      .nav-links { gap: 15px;}
+     .nav-links a.nav-link { font-size: 0.9em; padding: 4px 8px;}
+     .logout-button { font-size: 0.8em; padding: 6px 10px; }
+
+     .form-container-main {
+         padding: 15px;
+         margin-top: 20px;
+         margin-bottom: 40px;
+         width: 100%; /* Full width */
+         border-radius: 0; /* Remove radius */
+         box-shadow: none; /* Remove shadow */
+         border: none; /* Remove border */
+         background: rgba(255, 255, 255, 1); /* Opaque white */
+     }
+     .form-container-main h1 { font-size: 1.2em; }
+     #od-request-form label { font-size: 0.8em; }
+     #od-request-form input, #od-request-form select { font-size: 0.85em; padding: 8px; }
+     #od-request-form button[type="submit"] { font-size: 0.9em; padding: 10px; }
+
+     /* Adjust footer spacing */
+     .footer-container { padding: 8px 15px; }
+     .footer-content { margin-bottom: 10px; }
+     .footer-content h2 { font-size: 0.95em; }
+     .footer-content p { font-size: 0.75em; }
+     .footer-social { gap: 12px; }
+     .footer-icon { width: 25px; height: 25px; }
+     .footer-bottom { margin-top: 8px; font-size: 0.7em; }
+}
+
+/* --- Logout Confirmation Modal Styles --- */
+.modal-overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6); /* Black background with opacity */
+    z-index: 2000; /* Sit on top */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    /* display: flex; Use JS to set display to flex when shown */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 400px; /* Limit modal width */
+    width: 80%;
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.4em;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: #555;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around; /* Space out buttons */
+    gap: 15px; /* Add space between buttons */
+}
+
+.modal-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    flex: 1; /* Allow buttons to grow equally */
+}
+
+.modal-button.yes {
+    background-color: #dc3545; /* Red for confirmation */
+    color: white;
+}
+.modal-button.yes:hover {
+    background-color: #c82333;
+    transform: scale(1.03);
+}
+
+.modal-button.no {
+    background-color: #6c757d; /* Grey for cancel */
+    color: white;
+}
+.modal-button.no:hover {
+    background-color: #5a6268;
+    transform: scale(1.03);
+}
+
+/* Adjust modal padding on smaller screens if needed */
+@media screen and (max-width: 480px) {
+    .modal-content {
+        padding: 20px 25px;
+        width: 90%;
+    }
+    .modal-content h2 {
+        font-size: 1.3em;
+    }
+    .modal-content p {
+        font-size: 0.9em;
+    }
+    .modal-button {
+        font-size: 0.9em;
+        padding: 9px 15px;
+    }
+     .modal-buttons {
+       flex-direction: column; /* Stack buttons vertically */
+    }
+}
+
+/* Style changes when modal is shown - REMOVED .show-modal, JS will set display: flex */
+/* .modal-overlay.show-modal {
+    display: flex;
+} */
