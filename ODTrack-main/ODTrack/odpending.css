@@ -1,0 +1,168 @@
+/* odpending.css - Enhanced for Responsiveness */
+
+/* Inherits base styles from form.css */
+body {
+    padding-bottom: 200px; /* Adjust based on footer height */
+}
+
+.od-status-container {
+   width: 95%;
+   max-width: 900px;
+   margin: 30px auto;
+   padding: clamp(15px, 4vw, 25px);
+   background: white;
+   border-radius: 8px;
+   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+   min-height: 300px;
+}
+
+.od-status-container h1 {
+   text-align: center;
+   color: #333;
+   margin-bottom: 30px;
+   font-size: clamp(1.4em, 5vw, 1.6em);
+}
+
+.od-section-title {
+    font-size: clamp(1.15em, 4vw, 1.3em);
+    color: #444;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+.od-section-title:first-of-type {
+    margin-top: 0;
+}
+
+.od-request-card {
+   display: flex;
+   flex-wrap: wrap; /* Allow wrapping for medium screens */
+   align-items: center;
+   background: #fff;
+   border: 1px solid #e9ecef;
+   border-radius: 6px;
+   padding: 15px;
+   margin-bottom: 15px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+   transition: box-shadow 0.3s ease, transform 0.2s ease;
+   overflow: hidden;
+   gap: 15px;
+}
+
+.od-request-card.status-approved { border-left: 5px solid #28a745; }
+.od-request-card.status-pending { border-left: 5px solid #ffc107; }
+.od-request-card.status-rejected { border-left: 5px solid #dc3545; }
+
+.od-request-card:hover {
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+   transform: translateY(-2px);
+}
+
+.event-poster {
+   width: 65px;
+   height: 65px;
+   object-fit: cover;
+   border-radius: 4px;
+   flex-shrink: 0;
+   background-color: #eee;
+   border: 1px solid #ddd;
+}
+
+.od-details {
+   flex-grow: 1;
+   flex-basis: 300px; /* Allow wrapping if space is tight */
+}
+
+.od-details h2 {
+   margin: 0 0 8px 0;
+   font-size: 1.1em;
+   color: #495057;
+}
+.od-details p {
+   margin: 4px 0;
+   font-size: 0.9em;
+   color: #6c757d;
+}
+.od-details strong {
+   color: #495057;
+   font-weight: 600;
+}
+
+.status-approved, .status-pending, .status-rejected {
+   font-weight: bold;
+   padding: 3px 8px;
+   border-radius: 4px;
+   display: inline-block;
+   font-size: 0.85em;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+}
+.status-approved { color: #198754; background-color: rgba(25, 135, 84, 0.1); }
+.status-pending { color: #dda600; background-color: rgba(255, 193, 7, 0.1); } /* Darker yellow text */
+.status-rejected { color: #dc3545; background-color: rgba(220, 53, 69, 0.1); }
+
+.rejection-reason {
+   font-size: 0.8em !important;
+   color: #dc3545 !important;
+   margin-top: 6px !important;
+   font-style: italic;
+}
+
+.request-new-od-button {
+   display: block;
+   width: fit-content;
+   padding: 12px 25px;
+   background-color: #800000;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   font-size: 1em;
+   font-weight: 500;
+   cursor: pointer;
+   margin: 30px auto 15px auto;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+   min-height: 44px; /* Minimum tap size */
+}
+.request-new-od-button:hover {
+   background-color: #a00000;
+   transform: scale(1.03);
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 768px) {
+   body {
+       padding-bottom: 250px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   body {
+       padding-bottom: 280px;
+   }
+   .od-status-container {
+       width: 100%;
+       margin: 0;
+       padding: 10px;
+       border-radius: 0;
+       box-shadow: none;
+   }
+   .od-request-card {
+       flex-direction: column; /* Stack vertically */
+       align-items: flex-start; /* Align to the start */
+   }
+   /* Add to the end of odpending.css */
+
+.od-request-card.approved-clickable:hover {
+   box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+   transform: translateY(-3px);
+   cursor: pointer;
+}
+   .od-details {
+       width: 100%; /* Take full width */
+   }
+   .request-new-od-button {
+       width: 90%;
+   }
+}

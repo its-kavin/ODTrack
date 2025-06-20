@@ -1,0 +1,206 @@
+/* counselor_dashboard.css - Enhanced for Responsiveness */
+
+/* Inherits from form.css */
+body {
+    padding-bottom: 200px; /* Adjust based on footer height */
+}
+
+.dashboard-container {
+    width: 95%;
+    max-width: 1200px; /* Wider for more content */
+    margin: 30px auto;
+    padding: clamp(15px, 4vw, 25px);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-container h1, .dashboard-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: clamp(1.4em, 5vw, 1.6em);
+}
+.dashboard-container h2 {
+    font-size: clamp(1.2em, 4vw, 1.4em);
+    margin-top: 30px;
+}
+.dashboard-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Allow filters to wrap */
+    gap: 15px;
+}
+
+.filter-section input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    flex-grow: 1;
+    min-width: 200px; /* Prevent it from getting too small */
+    min-height: 44px; /* Minimum tap size */
+}
+
+.od-card {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    gap: 20px;
+}
+.od-card:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.od-info {
+    flex: 3 1 300px; /* Flex-grow, shrink, basis */
+}
+.od-info h3 { margin: 0 0 10px 0; font-size: 1.1em; color: #444; }
+.od-info p { margin: 4px 0; font-size: 0.9em; color: #555; text-align: left; }
+.od-info strong { color: #333; }
+
+.od-proof {
+    flex: 1 1 150px;
+    text-align: center;
+}
+.od-proof img, .od-proof a {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 5px auto;
+    border-radius: 4px;
+}
+.od-proof a { text-decoration: none; color: #007bff; font-size: 0.85em; border: none; }
+.od-proof a:hover { text-decoration: underline; }
+.od-proof span { font-size: 0.85em; color: #777; font-style: italic; }
+
+.od-actions {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.od-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 120px;
+    text-align: center;
+    min-height: 40px; /* Minimum tap size */
+}
+.approve-button { background-color: #28a745; color: white; }
+.approve-button:hover { background-color: #218838; transform: scale(1.03); }
+.reject-button { background-color: #dc3545; color: white; }
+.reject-button:hover { background-color: #c82333; transform: scale(1.03); }
+
+.section-divider { border: 0; height: 1px; background-color: #e0e0e0; margin: 40px 0; }
+
+/* History Section */
+.history-card .od-actions { display: none; }
+.history-card.status-approved { border-left: 5px solid #28a745; }
+.history-card.status-rejected { border-left: 5px solid #dc3545; }
+.status-badge {
+    font-weight: bold; padding: 3px 8px; border-radius: 4px;
+    display: inline-block; font-size: 0.85em; text-transform: uppercase;
+}
+.history-card.status-approved .status-badge { color: #198754; background-color: rgba(25, 135, 84, 0.1); }
+.history-card.status-rejected .status-badge { color: #dc3545; background-color: rgba(220, 53, 69, 0.1); }
+.rejection-reason-history { font-size: 0.85em !important; color: #555 !important; margin-top: 8px !important; }
+.rejection-reason-history strong { color: #333; }
+
+/* Modal Styles */
+#od-action-modal-title { margin-top: 0; margin-bottom: 15px; font-size: 1.3em; }
+#od-action-modal-message { margin-bottom: 15px; font-size: 1em; line-height: 1.5; }
+#od-action-reason-container { margin-top: 15px; margin-bottom: 20px; }
+#od-action-reason-container label { display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 0.9em; }
+#od-action-modal-reason {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.95em;
+    resize: vertical;
+    min-height: 80px;
+}
+#od-action-modal-reason:focus {
+    border-color: #800000;
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.3);
+    outline: none;
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 768px) {
+    body { padding-bottom: 250px; }
+    .od-card {
+        flex-direction: column; /* Stack card content vertically */
+        align-items: stretch; /* Stretch items to full width */
+    }
+    .od-actions {
+        flex-direction: row; /* Buttons side-by-side */
+        justify-content: space-evenly;
+        margin-top: 15px;
+    }
+    .od-actions button { width: 45%; }
+}
+
+@media screen and (max-width: 480px) {
+    body { padding-bottom: 280px; }
+    .dashboard-container { width: 100%; border-radius: 0; box-shadow: none; margin: 0;}
+}
+
+/* Add to counselor_dashboard.css */
+
+.od-proof strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.9em;
+}
+
+.attendance-proof {
+    margin-top: 15px;
+    font-size: 0.9em;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.attendance-proof a {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.attendance-proof span {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.od-proof {
+    flex: 1 1 220px; /* Give it a bit more space */
+    text-align: left;
+}
+
+.od-proof img, .od-proof > a { /* Target direct children links */
+    margin: 5px 0;
+}
